@@ -1,12 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-  <rect width="100%" height="100%" rx="18" fill="#fffaf0"/>
-  <g transform="translate(40,40)">
-    <rect width="260" height="120" rx="12" fill="#fff" stroke="#fff1e6" />
-    <text x="12" y="36" font-family="Arial" font-size="20" fill="#b45309">PROMETRIC</text>
-    <text x="12" y="64" font-family="Arial" font-size="14" fill="#374151">Full Simulation</text>
-    <rect x="320" y="12" width="160" height="96" rx="8" fill="#fff" stroke="#fff1e6"/>
-    <path d="M380 40 L420 40 L410 64 L390 64 Z" fill="#b45309"/>
-    <text x="12" y="150" font-family="Arial" font-size="13" fill="#374151">75+ questions • Timed exam • Detailed rationales</text>
-  </g>
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="28" fill="#FFF0F3"/>
+  <rect x="55" y="55" width="130" height="130" rx="20" fill="#FF3B6A"/>
+  <text x="120" y="125" text-anchor="middle" font-size="40" fill="white" font-family="Arial">100</text>
+  <text x="120" y="206" text-anchor="middle" font-size="20" fill="#B5002E" font-family="Arial">Full Test</text>
 </svg>
