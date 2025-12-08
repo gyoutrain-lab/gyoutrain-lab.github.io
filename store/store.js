@@ -1,76 +1,66 @@
-// store.js - Full Clean Version with Thumbnails
-
 export const products = [
+  // ============================
+  // NURSING CATEGORY
+  // ============================
   {
-    id: "nursing-prometric-demo",
-    title: "Nursing Prometric Demo",
-    category: "Nursing Prometric",
-    price: 0,
-    thumbnail: "./thumbnails/nursing_prometric_demo.svg",
-    file: "./files/nursing_prometric_demo.pdf"
+    id: "nursing-bundle",
+    title: "Nursing Bundle",
+    category: "nursing",
+    thumbnail: "/assets/nursing/nursing-bundle.svg",
+    description: "Complete nursing preparation bundle.",
+    link: "https://gyoutrain-lab.github.io/nursing/bundle"
   },
   {
-    id: "nursing-prometric-full",
-    title: "Nursing Prometric Full Version",
-    category: "Nursing Prometric",
-    price: 25,
-    thumbnail: "./thumbnails/nursing_prometric_full.svg",
-    file: "./files/nursing_prometric_full.pdf"
+    id: "nursing-explainer",
+    title: "Nursing Explainer",
+    category: "nursing",
+    thumbnail: "/assets/nursing/nursing-explainer.svg",
+    description: "Core concepts explained with clarity.",
+    link: "https://gyoutrain-lab.github.io/nursing/explainer"
   },
   {
-    id: "dha-nursing-demo",
-    title: "DHA Nursing Demo",
-    category: "DHA",
-    price: 0,
-    thumbnail: "./thumbnails/dha_nursing_demo.svg",
-    file: "./files/dha_nursing_demo.pdf"
+    id: "nursing-quicktest",
+    title: "Nursing Quick Test",
+    category: "nursing",
+    thumbnail: "/assets/nursing/nursing-quicktest.svg",
+    description: "Fast practice test with instant results.",
+    link: "https://gyoutrain-lab.github.io/nursing/quicktest"
+  },
+
+  // ============================
+  // PROMETRIC CATEGORY
+  // ============================
+  {
+    id: "prometric-main",
+    title: "Prometric Main Course",
+    category: "prometric",
+    thumbnail: "/assets/nursing/prometric-main.svg",
+    description: "Primary preparation program.",
+    link: "https://gyoutrain-lab.github.io/prometric/main"
   },
   {
-    id: "dha-nursing-full",
-    title: "DHA Nursing Full Version",
-    category: "DHA",
-    price: 25,
-    thumbnail: "./thumbnails/dha_nursing_full.svg",
-    file: "./files/dha_nursing_full.pdf"
+    id: "prometric-demo",
+    title: "Prometric Demo Test",
+    category: "prometric",
+    thumbnail: "/assets/nursing/prometric-demo.svg",
+    description: "Free demo test to evaluate your level.",
+    link: "https://gyoutrain-lab.github.io/prometric/demo"
   },
   {
-    id: "haad-nursing-demo",
-    title: "HAAD Nursing Demo",
-    category: "HAAD",
-    price: 0,
-    thumbnail: "./thumbnails/haad_nursing_demo.svg",
-    file: "./files/haad_nursing_demo.pdf"
-  },
-  {
-    id: "haad-nursing-full",
-    title: "HAAD Nursing Full Version",
-    category: "HAAD",
-    price: 25,
-    thumbnail: "./thumbnails/haad_nursing_full.svg",
-    file: "./files/haad_nursing_full.pdf"
-  },
-  {
-    id: "saudi-nursing-demo",
-    title: "Saudi Nursing Demo",
-    category: "SCFHS",
-    price: 0,
-    thumbnail: "./thumbnails/saudi_nursing_demo.svg",
-    file: "./files/saudi_nursing_demo.pdf"
-  },
-  {
-    id: "saudi-nursing-full",
-    title: "Saudi Nursing Full Version",
-    category: "SCFHS",
-    price: 25,
-    thumbnail: "./thumbnails/saudi_nursing_full.svg",
-    file: "./files/saudi_nursing_full.pdf"
+    id: "prometric-full",
+    title: "Prometric Full Test",
+    category: "prometric",
+    thumbnail: "/assets/nursing/prometric-full.svg",
+    description: "Full-length 100-item mock test.",
+    link: "https://gyoutrain-lab.github.io/prometric/full"
   }
 ];
 
+// =========================================
+// CATEGORY LIST (AUTO DISPLAY IN DROPDOWN)
+// =========================================
 export const categories = [
-  "All",
-  "Nursing Prometric",
-  "DHA",
-  "HAAD",
-  "SCFHS"
+  { id: "all", name: "All" },
+  { id: "nursing", name: "Nursing" },
+  { id: "prometric", name: "Prometric" }
 ];
