@@ -1,143 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GyouTrain Store</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: #f7f7f7;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        select, input {
-            padding: 10px;
-            font-size: 16px;
-            min-width: 220px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            margin: 0 0 10px;
-        }
-
-        .card p {
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 14px;
-            background: #0066ff;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            margin-left: 8px;
-        }
-    </style>
-
-    <script src="store/store.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GyouTrain Products</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div id="products"></div>
 
-    <h1>GyouTrain Products</h1>
+<header>
+    <h1>GyouTrain Product Store</h1>
+    <p>Select your category and access your learning products instantly.</p>
+</header>
 
-    <div class="controls">
-        <select id="categoryFilter">
-            <option value="all">All Categories</option>
-        </select>
+<section id="products" class="product-list">
+    <!-- Product list loads automatically -->
+</section>
 
-        <input type="text" id="searchBox" placeholder="Search products..." />
-    </div>
-
-    <div id="productGrid" class="grid"></div>
-
-    <script>
-        // LOAD CATEGORIES
-        function loadCategories() {
-            const categories = new Set(store.products.map(p => p.category));
-            const select = document.getElementById("categoryFilter");
-
-            categories.forEach(cat => {
-                const opt = document.createElement("option");
-                opt.value = cat;
-                opt.textContent = cat.replace("-", " ").toUpperCase();
-                select.appendChild(opt);
-            });
-        }
-
-        // RENDER PRODUCTS
-        function renderProducts() {
-            const grid = document.getElementById("productGrid");
-            const search = document.getElementById("searchBox").value.toLowerCase();
-            const category = document.getElementById("categoryFilter").value;
-
-            grid.innerHTML = "";
-
-            const filtered = store.products.filter(p => {
-                const matchesCategory = (category === "all" || p.category === category);
-                const matchesSearch = p.title.toLowerCase().includes(search);
-                return matchesCategory && matchesSearch;
-            });
-
-            filtered.forEach(product => {
-                const card = document.createElement("div");
-                card.className = "card";
-
-                card.innerHTML = `
-                    <h3>${product.title}</h3>
-                    <p>${product.description}</p>
-                    <a class="btn" href="${product.url}" target="_blank">Open</a>
-                    <a class="btn btn-whatsapp" href="${product.whatsapp}" target="_blank">WhatsApp</a>
-                `;
-
-                grid.appendChild(card);
-            });
-        }
-
-        // INITIALIZE
-        loadCategories();
-        renderProducts();
-
-        document.getElementById("categoryFilter").addEventListener("change", renderProducts);
-        document.getElementById("searchBox").addEventListener("input", renderProducts);
-    </script>
 <script src="store/store.js"></script>
 <script src="store/render.js"></script>
 
