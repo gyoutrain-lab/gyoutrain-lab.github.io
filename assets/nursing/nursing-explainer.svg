@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-<rect width="100%" height="100%" rx="18" fill="#e8f7f7"/>
-<g transform="translate(40,40)">
-<rect width="260" height="140" rx="12" fill="#fff" stroke="#bae2e2" />
-<text x="12" y="36" font-family="Arial" font-size="20" fill="#0a7f7f">PROMETRIC</text>
-<text x="12" y="66" font-family="Arial" font-size="14" fill="#374151">Nursing Test Guide</text>
-<circle cx="340" cy="80" r="50" fill="#fff" stroke="#bae2e2"/>
-<path d="M320 62c8-12 30-18 50-8 12 6 20 26 10 44-8 16-32 18-50 8-10-8-20-26-10-44z" fill="#0a7f7f"/>
-<text x="12" y="170" font-family="Arial" font-size="13" fill="#374151">Instructions • Tips • Strategies</text>
-</g></svg>
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="28" fill="#FFF7E6"/>
+  <rect x="36" y="60" width="168" height="120" rx="12" fill="#FFA500"/>
+  <circle cx="120" cy="120" r="28" fill="white"/>
+  <text x="120" y="206" text-anchor="middle" font-size="22" font-family="Arial" fill="#D67A00">Explainer</text>
+</svg>
