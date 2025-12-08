@@ -1,98 +1,110 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+// ==========================================================
+// PRODUCT DATA
+// ==========================================================
+export const products = [
+  // Nursing Category
+  {
+    id: "nursing-bundle",
+    title: "Nursing Bundle",
+    category: "nursing",
+    thumbnail: "/assets/nursing/nursing-bundle.svg",
+    description: "Complete nursing preparation bundle.",
+    link: "https://gyoutrain-lab.github.io/nursing/bundle"
+  },
+  {
+    id: "nursing-explainer",
+    title: "Nursing Explainer",
+    category: "nursing",
+    thumbnail: "/assets/nursing/nursing-explainer.svg",
+    description: "Core concepts explained with clarity.",
+    link: "https://gyoutrain-lab.github.io/nursing/explainer"
+  },
+  {
+    id: "nursing-quicktest",
+    title: "Nursing Quick Test",
+    category: "nursing",
+    thumbnail: "/assets/nursing/nursing-quicktest.svg",
+    description: "Fast practice test with instant results.",
+    link: "https://gyoutrain-lab.github.io/nursing/quicktest"
+  },
+
+  // Prometric Category
+  {
+    id: "prometric-main",
+    title: "Prometric Main Course",
+    category: "prometric",
+    thumbnail: "/assets/nursing/prometric-main.svg",
+    description: "Primary preparation program.",
+    link: "https://gyoutrain-lab.github.io/prometric/main"
+  },
+  {
+    id: "prometric-demo",
+    title: "Prometric Demo Test",
+    category: "prometric",
+    thumbnail: "/assets/nursing/prometric-demo.svg",
+    description: "Free demo test to evaluate your level.",
+    link: "https://gyoutrain-lab.github.io/prometric/demo"
+  },
+  {
+    id: "prometric-full",
+    title: "Prometric Full Test",
+    category: "prometric",
+    thumbnail: "/assets/nursing/prometric-full.svg",
+    description: "Full-length 100-item mock test.",
+    link: "https://gyoutrain-lab.github.io/prometric/full"
+  }
+];
+
+export const categories = [
+  { id: "all", name: "All" },
+  { id: "nursing", name: "Nursing" },
+  { id: "prometric", name: "Prometric" }
+];
+
+// ==========================================================
+// RENDER CATEGORY DROPDOWN
+// ==========================================================
+const categorySelect = document.getElementById("categorySelect");
+categories.forEach(cat => {
+  const option = document.createElement("option");
+  option.value = cat.id;
+  option.textContent = cat.name;
+  categorySelect.appendChild(option);
+});
+
+// ==========================================================
+// RENDER PRODUCTS
+// ==========================================================
+const productGrid = document.getElementById("productGrid");
+
+function renderProducts(filter = "all") {
+  productGrid.innerHTML = "";
+
+  const filtered =
+    filter === "all" ? products : products.filter(p => p.category === filter);
+
+  filtered.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.onclick = () => (window.location.href = item.link);
+
+    card.innerHTML = `
+      <img src="${item.thumbnail}" class="product-thumb" alt="${item.title}">
+      <div class="product-info">
+        <div class="product-title">${item.title}</div>
+        <div class="product-desc">${item.description}</div>
+      </div>
+    `;
+
+    productGrid.appendChild(card);
+  });
 }
 
-body {
-  background: #f5f9ff;
-  color: #1f2937;
-  padding: 20px;
-}
+renderProducts();
 
-/* Header */
-.header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.header h1 {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.header p {
-  margin-top: 6px;
-  font-size: 15px;
-  color: #4b5563;
-}
-
-/* Category */
-.category-wrapper {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.category-wrapper select {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  font-size: 15px;
-  background: white;
-  cursor: pointer;
-}
-
-/* Product grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-  padding: 10px;
-}
-
-/* Product card */
-.product-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
-}
-
-.product-thumb {
-  width: 100%;
-  height: 160px;
-  object-fit: contain;
-  background: #eaf4ff;
-  padding: 10px;
-}
-
-.product-info {
-  padding: 15px;
-}
-
-.product-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.product-desc {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* Footer */
-.footer {
-  margin-top: 45px;
-  text-align: center;
-  font-size: 13px;
-  color: #9ca3af;
-}
+// ==========================================================
+// FILTER EVENT
+// ==========================================================
+categorySelect.addEventListener("change", (e) => {
+  renderProducts(e.target.value);
+});
