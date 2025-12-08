@@ -1,64 +1,20 @@
 {
   "products": [
     {
-      "id": "nursing-demo",
+      "id": "n1",
       "category": "nursing",
-      "title": "Nursing Prometric Demo — 20 Q",
-      "short": "Free 20-question demo with instant scoring.",
-      "long": "Try the 20-question Prometric-style demo to evaluate your readiness. Mobile-friendly and quick.",
-      "price": "Free",
-      "thumbnail": "/assets/nursing/prometric-demo.svg",
-      "demo": "https://script.google.com/macros/s/AKfycbwQX3XRFHwz5u5t1A8ROqaRO8U0yw019UC19lwQjQYqTmKO9iGhjVqBeBGiGYDKvFkJ/exec",
-      "full": "https://gyoutrain-lab.github.io/production-prometrictest6/",
-      "whatsapp": "https://wa.me/6285399652487?text=I%20want%20the%20Nursing%20Prometric%20Full%20Test"
+      "title": "Nursing Prometric Demo Test",
+      "description": "20-item demo quiz with instant scoring.",
+      "thumbnail": "../assets/nursing/prometric-demo.svg",
+      "url": "https://script.google.com/macros/s/AKfycbwQX3XRFHwz5u5t1A8ROqaRO8U0yw019UC19lwQjQYqTmKO9iGhjVqBeBGiGYDKvFkJ/exec"
     },
     {
-      "id": "nursing-full-main",
+      "id": "n2",
       "category": "nursing",
-      "title": "Nursing Prometric Full Test (Model 6)",
-      "short": "Full simulation (75+ Q), timed, answer key included.",
-      "long": "Complete 75-question simulation built to mimic Prometric exam conditions. Use for full-length practice.",
-      "price": "Premium",
-      "thumbnail": "/assets/nursing/prometric-main.svg",
-      "demo": "https://script.google.com/macros/s/AKfycbwQX3XRFHwz5u5t1A8ROqaRO8U0yw019UC19lwQjQYqTmKO9iGhjVqBeBGiGYDKvFkJ/exec",
-      "full": "https://gyoutrain-lab.github.io/production-prometrictest6/",
-      "whatsapp": "https://wa.me/6285399652487?text=I%20want%20to%20buy%20the%20Nursing%20Prometric%20Full%20Test"
-    },
-    {
-      "id": "nursing-bundle",
-      "category": "nursing",
-      "title": "Nursing Bundle — 10 Models",
-      "short": "All models packaged — best value.",
-      "long": "Complete bundle of 10 Prometric models for intensive practice and revision.",
-      "price": "Bundle",
-      "thumbnail": "/assets/nursing/nursing-bundle.svg",
-      "demo": "",
-      "full": "#",
-      "whatsapp": "https://wa.me/6285399652487?text=I%20want%20the%20Nursing%20Bundle%20(10%20models)"
-    },
-    {
-      "id": "nursing-quicktest",
-      "category": "nursing",
-      "title": "Nursing Quick Test — 10 min",
-      "short": "Short quick test for warm-up.",
-      "long": "10-minute focused practice to warm up before longer sessions.",
-      "price": "Free",
-      "thumbnail": "/assets/nursing/nursing-quicktest.svg",
-      "demo": "",
-      "full": "#",
-      "whatsapp": "https://wa.me/6285399652487?text=I%20want%20the%20Nursing%20Quick%20Test"
-    },
-    {
-      "id": "prometric-full",
-      "category": "prometric",
-      "title": "Prometric Full Test",
-      "short": "Full-length 100-item mock test.",
-      "long": "Full-length 100-item mock test with scoring and explanations.",
-      "price": "Premium",
-      "thumbnail": "/assets/nursing/prometric-full.svg",
-      "demo": "",
-      "full": "https://gyoutrain-lab.github.io/production-prometrictest6/",
-      "whatsapp": "https://wa.me/6285399652487?text=I%20want%20the%20Prometric%20Full%20Test"
+      "title": "Nursing Prometric Full Test",
+      "description": "75-item full test with explanations.",
+      "thumbnail": "../assets/nursing/prometric-main.svg",
+      "url": "https://gyoutrain-lab.github.io/production-prometrictest6/"
     }
   ]
 }
