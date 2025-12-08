@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+<rect width="100%" height="100%" rx="18" fill="#eef9f1"/>
+<g transform="translate(40,40)">
+<rect width="260" height="140" rx="12" fill="#fff" stroke="#c8ecd1" />
+<text x="12" y="36" font-family="Arial" font-size="20" fill="#2c8a3e">PROMETRIC</text>
+<text x="12" y="66" font-family="Arial" font-size="14" fill="#374151">Nursing Full Test</text>
+<circle cx="340" cy="80" r="50" fill="#fff" stroke="#c8ecd1"/>
+<path d="M320 62c10-12 36-16 50-2 9 9 12 28-2 40-14 12-40 10-48-6-6-12-10-28 0-32z" fill="#2c8a3e"/>
+<text x="12" y="170" font-family="Arial" font-size="13" fill="#374151">75 questions • Real exam format</text>
+</g></svg>

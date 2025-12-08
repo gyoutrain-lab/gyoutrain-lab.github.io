@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+<rect width="100%" height="100%" rx="18" fill="#fff6e5"/>
+<g transform="translate(40,40)">
+<rect width="260" height="140" rx="12" fill="#fff" stroke="#f3d9a4" />
+<text x="12" y="36" font-family="Arial" font-size="20" fill="#b87000">PROMETRIC</text>
+<text x="12" y="66" font-family="Arial" font-size="14" fill="#374151">Nursing Bundle Set</text>
+<circle cx="340" cy="80" r="50" fill="#fff" stroke="#f3d9a4"/>
+<path d="M320 62c12-10 40-14 54 4 9 10 14 30-4 44-16 12-42 10-50-8-6-12-10-32 0-40z" fill="#b87000"/>
+<text x="12" y="170" font-family="Arial" font-size="13" fill="#374151">10-model package • Best value</text>
+</g></svg>
