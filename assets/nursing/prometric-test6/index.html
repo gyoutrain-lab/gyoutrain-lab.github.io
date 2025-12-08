@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- ✅ Injected: Prevent Android auto-zoom shrinking -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Nursing Prometric Simulation Test Dashboard</title>
+
+  <!-- Favicon Icon -->
+  <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest6/main/assets/TView2b.png">
+
+  <!-- Social Media Thumbnail -->
+  <meta property="og:title" content="Nursing Prometric Simulation Test">
+  <meta property="og:description" content="700 Nurse Technician Test Items covering 7 core subjects. Adapted by Giyono Asfarrasyid, ETK Yogyakarta.">
+  <meta property="og:image"
+        content="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest6/main/assets/TView2b.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gyoutrain-lab.github.io/production-prometrictest6/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nursing Prometric Simulation Test">
+  <meta name="twitter:description" content="700 Nurse Technician Test Items covering 7 subjects.">
+  <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest6/main/assets/TView2b.png">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #f0f0f0;
+    }
+
+    /* ============================================================
+       ✅ INJECTION: Android Full-Scaling Upgrade
+       Makes everything readable and proportionate on phones
+       WITHOUT changing your design
+    ============================================================= */
+    html {
+      font-size: 3.3vw;      /* makes all text scale bigger on Android */
+    }
+
+    @media (min-width: 768px){
+      html { font-size: 16px; }   /* normal size on desktop */
+    }
+
+    button, h1, h2, span {
+      transform-origin: top left;
+      -webkit-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
+    }
+    /* ============================================================ */
+
+
+    /* Top Image */
+    .top-image {
+      width: 100%;
+      height: 50vh;
+      background: url('https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest6/main/assets/TView2b.png')
+                  no-repeat center center;
+      background-size: cover;
+    }
+
+    /* Title Overlay */
+    .title-container {
+      width: 100%;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: -40px;
+      position: relative;
+    }
+
+    .title-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest6/main/assets/TView2.jpg');
+      background-size: cover;
+      opacity: 0.3;
+      z-index: -1;
+      animation: flow 30s linear infinite;
+    }
+
+    @keyframes flow {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    .title-container h1 {
+      font-size: 2rem;     /* scales via vw injection above */
+      font-weight: bold;
+      color: #8B0000;
+    }
+
+    .title-container h2 {
+      font-size: 1rem;     /* scales via vw injection above */
+      color: #B8860B;
+    }
+
+    /* Social Media Icons */
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social img {
+      width: 45px;
+      height: 45px;
+      transition: transform 0.3s;
+    }
+
+    .social img:hover {
+      transform: scale(1.15);
+    }
+
+    /* Test Items */
+    .test-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: 500;
+      color: #1E3A8A;
+    }
+
+    /* Start Button */
+    .bottom-buttons {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .bottom-buttons button {
+      background: linear-gradient(145deg, #ffcc33, #ff6600);
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.3em;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.25);
+    }
+
+    .bottom-buttons button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Dana QR */
+    .dana-qr {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 140px;
+    }
+
+    .dana-qr img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .social img { width: 38px; height: 38px; }
+      .test-items { font-size: 19px; }
+      .dana-qr { width: 110px; }
+      .bottom-buttons button { font-size: 1.1em; padding: 12px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Image -->
+  <div class="top-image"></div>
+
+  <!-- Title -->
+  <div class="title-container">
+    <h1>Nursing Prometric Actual Simulation Test</h1>
+    <h2>Based on Prometric/SMLE + NCLEX materials | Adapted by Giyono Asfarrasyid</h2>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="social">
+    <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
+    <a href="https://wa.me/6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
+    <a href="mailto:gyoutrain@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
+    <a href="https://web.facebook.com/gyouskill/"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+    <a href="https://www.instagram.com/etkyogya"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+  </div>
+
+  <!-- Subjects -->
+  <div class="test-items">
+    <span>| Fundamental</span>
+    <span>| Medical Surgical</span>
+    <span>| Maternity & Obstetric</span>
+    <span>| Pediatric</span>
+    <span>| Critical Care</span>
+    <span>| Pharmacology</span>
+    <span>| Behavioral & Ethics</span>
+  </div>
+
+  <!-- Start Test Button -->
+  <div class="bottom-buttons">
+    <button onclick="startQuiz()">Start Test</button>
+  </div>
+
+  <!-- Dana QR -->
+  <div class="dana-qr">
+    <img src="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest6/main/assets/danaqr.png">
+  </div>
+
+  <script>
+    function startQuiz() {
+      const name = prompt("Enter your Name:");
+      const wa = prompt("Enter your WhatsApp Number (include country code):");
+
+      if (!name || !wa) {
+        alert("Please fill both fields.");
+        return;
+      }
+
+      const admin = "6285399652487";
+      const msg = `Payment Confirmation, User Name: ${name}, WA#: ${wa}, Share Proof QR IDR 50k to get Unlock Code`;
+
+      window.open(`https://wa.me/${admin}?text=${encodeURIComponent(msg)}`, "_blank");
+
+      window.location.href =
+        "https://script.google.com/macros/s/AKfycbzro8Lul3sG36KsNNG5UPU2vpvOHHbH2PKFNk4Czp2-fnFiBVNk_gJPtSOJdrobOIvK/exec";
+    }
+  </script>
+
+</body>
+</html>
