@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYOUTRAIN STORE</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #005bbb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    #search {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .category-btn {
+      padding: 8px 12px;
+      background: #eee;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .category-btn:hover {
+      background: #ddd;
+    }
+
+    .product-card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      margin-right: 8px;
+      background: #005bbb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .btn-wa {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>GYOUTRAIN STORE</header>
+
+  <div class="container">
+
+    <!-- Search bar -->
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Search product...">
+    </div>
+
+    <!-- Category filters -->
+    <div class="categories" id="categories"></div>
+
+    <!-- Product listing -->
+    <div id="product-list"></div>
+  </div>
+
+  <script src="/store/store.js"></script>
+
+  <script>
+    // Load categories into filter menu
+    async function loadCategoryButtons() {
+      const res = await fetch('/store/categories.json');
+      const data = await res.json();
+      const categories = data.categories;
+
+      const container = document.getElementById('categories');
+
+      container.innerHTML = `<div class='category-btn' data-cat='all'>All</div>`;
+
+      categories.forEach(cat => {
+        container.innerHTML += `
+          <div class="category-btn" data-cat="${cat.id}">
+            ${cat.name}
+          </div>
+        `;
+      });
+
+      // Add click event
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selected = btn.getAttribute('data-cat');
+          renderProducts(selected === "all" ? null : selected);
+        });
+      });
+    }
+
+    // Search filter
+    document.getElementById('search').addEventListener('keyup', async function () {
+      const term = this.value.toLowerCase();
+      const products = await loadProducts();
+
+      const filtered = products.filter(p =>
+        p.title.toLowerCase().includes(term) ||
+        p.description.toLowerCase().includes(term)
+      );
+
+      const container = document.getElementById('product-list');
+      container.innerHTML = '';
+
+      filtered.forEach(p => {
+        container.innerHTML += `
+          <div class="product-card">
+            <h3>${p.title}</h3>
+            <p>${p.description}</p>
+            <a href="${p.url}" class="btn">Open Demo</a>
+            <a href="${p.whatsapp}" class="btn-wa">Order via WhatsApp</a>
+          </div>
+        `;
+      });
+    });
+
+    // Start
+    loadCategoryButtons();
+    renderProducts();
+  </script>
+
+</body>
+
+</html>
 
