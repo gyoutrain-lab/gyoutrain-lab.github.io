@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GyouTrain — Nursing Prometric Store</title>
+  <meta name="description" content="Practice Nursing Prometric tests — free demo and full simulated exams. Mobile-friendly, realistic timed quizzes." />
+  <link rel="stylesheet" href="store.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>GyouTrain — Nursing Prometric</h1>
+      <p class="sub">Free demo • Timed full simulations • Optimized for Gulf licensure</p>
+      <div class="hero-ctas">
+        <a class="btn primary" id="browseBtn">Browse Tests</a>
+        <a class="btn alt" href="https://wa.me/6285399652487" target="_blank" rel="noopener">Contact via WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls">
+      <div class="left">
+        <input id="searchInput" type="search" placeholder="Search tests, topics, keywords..." aria-label="Search products">
+      </div>
+      <div class="right">
+        <select id="categorySelect" aria-label="Filter by category">
+          <option value="all">All categories</option>
+        </select>
+        <button id="themeToggle" aria-pressed="false" class="btn small">Dark</button>
+      </div>
+    </section>
+
+    <section id="productGrid" class="product-grid" aria-live="polite">
+      <!-- cards injected by store.js -->
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© GyouTrain Lab — For support: <a href="https://wa.me/6285399652487" target="_blank" rel="noopener">WhatsApp</a></p>
+  </footer>
+
+  <script src="products.json" defer></script> <!-- browsers ignore JSON; included to remind file exists -->
+  <script src="store.js"></script>
+</body>
+</html>
