@@ -1,40 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>GyouTrain Product Store</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Browse nursing prometric tests, demo quizzes, competency exams, school exams, job interview tests, and more. Instant access. Mobile-friendly.">
-  <meta name="keywords" content="prometric test, nursing exam, competency test, quiz, online exam, gyoutrain store">
-  <meta name="author" content="GyouTrain">
-
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="GyouTrain — Nursing Prometric tests. Try a free demo, then unlock full exam simulations. Mobile-friendly, realistic practice."/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-
-  <header>
-    <h1>GyouTrain Product Store</h1>
-    <p>Select your category and access your learning products instantly.</p>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>GyouTrain — Product Store</h1>
+      <p class="lead">Browse demos and full nursing Prometric tests. Try free demo → unlock full tests via WhatsApp.</p>
+    </div>
   </header>
 
-  <section id="filters">
-    <label for="categorySelect">Category:</label>
-    <select id="categorySelect">
-      <option value="all">All</option>
-    </select>
-  </section>
+  <main class="wrap">
+    <section id="controls" class="controls">
+      <label for="categorySelect">Category</label>
+      <select id="categorySelect"><option value="all">All</option></select>
 
-  <section id="productList" class="grid"></section>
+      <input id="searchBox" placeholder="Search products..." aria-label="Search products">
+    </section>
 
-  <footer>
-    <p>© 2025 GyouTrain — Smart Training Solutions</p>
+    <section id="productList" class="grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© GyouTrain Lab — For support: <a href="https://wa.me/6285399652487" target="_blank" rel="noopener">WhatsApp</a></p>
   </footer>
 
-  <script src="store.js"></script>
-
+  <!-- store code -->
+  <script src="store/store.js"></script>
+  <script src="store/render.js"></script>
 </body>
 </html>
