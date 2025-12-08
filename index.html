@@ -1,32 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GyouTrain — Nursing Prometric Tests</title>
-  <meta name="description" content="Try the free Nursing Prometric demo and access full Prometric practice tests. Realistic timed simulations, mobile-friendly, optimized for Gulf licensure exams." />
-  <meta name="keywords" content="prometric nursing test,prometric demo,nursing practice test,MOH exam,Qatar Prometric,Saudi Prometric" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GyouTrain Product Store</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Browse nursing prometric tests, demo quizzes, competency exams, school exams, job interview tests, and more. Instant access. Mobile-friendly.">
+  <meta name="keywords" content="prometric test, nursing exam, competency test, quiz, online exam, gyoutrain store">
+  <meta name="author" content="GyouTrain">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1>GyouTrain — Nursing Prometric Tests</h1>
-      <p class="lead">Free demo + full exam simulations. Practice, learn, and pass your nursing licensure.</p>
-    </div>
+
+  <header>
+    <h1>GyouTrain Product Store</h1>
+    <p>Select your category and access your learning products instantly.</p>
   </header>
 
-  <main class="wrap" id="main">
-    <section id="product-list" aria-live="polite">
-      <!-- product cards will be injected here by store/render.js -->
-    </section>
-  </main>
+  <section id="filters">
+    <label for="categorySelect">Category:</label>
+    <select id="categorySelect">
+      <option value="all">All</option>
+    </select>
+  </section>
 
-  <footer class="wrap footer">
-    <p>© GyouTrain Lab — For support: <a href="https://wa.me/6285399652487" target="_blank" rel="noopener">WhatsApp</a></p>
+  <section id="productList" class="grid"></section>
+
+  <footer>
+    <p>© 2025 GyouTrain — Smart Training Solutions</p>
   </footer>
 
-  <script src="store/store.js"></script>
-  <script src="store/render.js"></script>
+  <script src="store.js"></script>
+
 </body>
 </html>
