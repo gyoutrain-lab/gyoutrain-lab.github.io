@@ -1,1 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product — Gyoutrain</title>
+  <meta name="description" content="Product detail" />
+  <style>
+    body{font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;background:#f7f9fc;color:#0f172a;padding:16px}
+    .card{max-width:760px;margin:10px auto;background:#fff;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .thumb{height:220px;border-radius:10px;background:#eef6ff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    h1{margin:12px 0 6px;font-size:20px}
+    p.lead{color:#6b7280}
+    .row{display:flex;gap:8px;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-demo{border:1px solid rgba(29,126,220,0.12);background:transparent;color:#1D7EDC}
+    .btn-buy{background:#25D366;color:#fff}
+  </style>
+</head>
+<body>
+  <div class="card" id="root">
+    <div class="thumb" id="imgWrap"><img id="thumb" src="../assets/fundamental.svg" alt="thumb"></div>
+    <h1 id="title">Product Title</h1>
+    <p class="lead" id="desc">Product short description</p>
+    <p id="more" style="color:#6b7280"></p>
+    <div class="row">
+      <a id="demoBtn" class="btn btn-demo" href="#" target="_blank">Try Demo</a>
+      <a id="buyBtn" class="btn btn-buy" href="#" target="_blank">Unlock via WhatsApp</a>
+    </div>
+    <p style="margin-top:12px;color:#9aa2b2;font-size:13px">Back to <a href="/store">Store</a></p>
+  </div>
+
+  <script src="store.js"></script>
+  <script>
+    // read id from ?id=product-id
+    const params = new URLSearchParams(location.search)
+    const id = params.get('id')
+    if (!id) {
+      document.getElementById('root').innerHTML = '<p>Invalid product. <a href="/store">Back to store</a></p>'
+    } else {
+      // wait for store data loaded
+      (async function load() {
+        await window.storeReady
+        const product = (window.products||[]).find(p => p.id===id)
+        if (!product) {
+          document.getElementById('root').innerHTML = '<p>Product not found. <a href="/store">Back</a></p>'
+          return
+        }
+        document.getElementById('title').textContent = product.title
+        document.getElementById('desc').textContent = product.short
+        document.getElementById('thumb').src = product.img ? ('../assets/'+product.img) : '../assets/coming.svg'
+        document.getElementById('more').textContent = product.long || ''
+        document.getElementById('demoBtn').href = product.demo || '#'
+        const wa = 'https://wa.me/6285399652487?text=' + encodeURIComponent('I want to unlock: '+product.title)
+        document.getElementById('buyBtn').href = wa
+      })()
+    }
+  </script>
+</body>
+</html>
 
