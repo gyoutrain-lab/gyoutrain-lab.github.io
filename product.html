@@ -1,62 +1,1024 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Product — Gyoutrain</title>
-  <meta name="description" content="Product detail" />
-  <style>
-    body{font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, Arial;margin:0;background:#f7f9fc;color:#0f172a;padding:16px}
-    .card{max-width:760px;margin:10px auto;background:#fff;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
-    .thumb{height:220px;border-radius:10px;background:#eef6ff;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover}
-    h1{margin:12px 0 6px;font-size:20px}
-    p.lead{color:#6b7280}
-    .row{display:flex;gap:8px;margin-top:12px}
-    .btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-    .btn-demo{border:1px solid rgba(29,126,220,0.12);background:transparent;color:#1D7EDC}
-    .btn-buy{background:#25D366;color:#fff}
-  </style>
-</head>
-<body>
-  <div class="card" id="root">
-    <div class="thumb" id="imgWrap"><img id="thumb" src="../assets/fundamental.svg" alt="thumb"></div>
-    <h1 id="title">Product Title</h1>
-    <p class="lead" id="desc">Product short description</p>
-    <p id="more" style="color:#6b7280"></p>
-    <div class="row">
-      <a id="demoBtn" class="btn btn-demo" href="#" target="_blank">Try Demo</a>
-      <a id="buyBtn" class="btn btn-buy" href="#" target="_blank">Unlock via WhatsApp</a>
-    </div>
-    <p style="margin-top:12px;color:#9aa2b2;font-size:13px">Back to <a href="/store">Store</a></p>
-  </div>
+{
+  "products": [
+    {
+      "id": "nursing01",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 1",
+      "description": "Full simulation test with updated 2025 questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing02",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 2",
+      "description": "Practice exam with 75+ clinical reasoning questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing03",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 3",
+      "description": "Scenario-based Prometric exam for nurses.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing04",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 4",
+      "description": "Latest nursing exam with answer key + explanations.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing05",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 5",
+      "description": "Full mock exam built based on Prometric blueprint.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing06",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 6",
+      "description": "High-difficulty Prometric questions for nurses.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing07",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 7",
+      "description": "Advanced practice for international nurse exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing08",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 8",
+      "description": "Updated clinical scenario questions with answers.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing09",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 9",
+      "description": "75-item Prometric exam with rationales.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nursing10",
+      "category": "nursing",
+      "title": "Nursing Prometric Test Set 10",
+      "description": "Mega practice set for 2025 nurse license exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/nursing/nursing10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
 
-  <script src="store.js"></script>
-  <script>
-    // read id from ?id=product-id
-    const params = new URLSearchParams(location.search)
-    const id = params.get('id')
-    if (!id) {
-      document.getElementById('root').innerHTML = '<p>Invalid product. <a href="/store">Back to store</a></p>'
-    } else {
-      // wait for store data loaded
-      (async function load() {
-        await window.storeReady
-        const product = (window.products||[]).find(p => p.id===id)
-        if (!product) {
-          document.getElementById('root').innerHTML = '<p>Product not found. <a href="/store">Back</a></p>'
-          return
-        }
-        document.getElementById('title').textContent = product.title
-        document.getElementById('desc').textContent = product.short
-        document.getElementById('thumb').src = product.img ? ('../assets/'+product.img) : '../assets/coming.svg'
-        document.getElementById('more').textContent = product.long || ''
-        document.getElementById('demoBtn').href = product.demo || '#'
-        const wa = 'https://wa.me/6285399652487?text=' + encodeURIComponent('I want to unlock: '+product.title)
-        document.getElementById('buyBtn').href = wa
-      })()
+    /* ---------------- HOSPITALITY ---------------- */
+
+    {
+      "id": "hosp01",
+      "category": "hospitality",
+      "title": "Barista Competency Test Set 1",
+      "description": "Espresso, milk texturing, customer service questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp02",
+      "category": "hospitality",
+      "title": "Barista Competency Test Set 2",
+      "description": "Latte art, menu knowledge, bar workflow exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp03",
+      "category": "hospitality",
+      "title": "Food & Beverage Test Set 1",
+      "description": "Customer handling, menu service, F&B operations.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp04",
+      "category": "hospitality",
+      "title": "Food & Beverage Test Set 2",
+      "description": "Operational workflow and restaurant service exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp05",
+      "category": "hospitality",
+      "title": "Housekeeping Test Set 1",
+      "description": "Cleaning standards, SOP, safety procedures.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp06",
+      "category": "hospitality",
+      "title": "Housekeeping Test Set 2",
+      "description": "Room setup, sanitation, lost & found protocol.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp07",
+      "category": "hospitality",
+      "title": "Front Office Test Set 1",
+      "description": "Check-in/out, reservation handling, complaint solving.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp08",
+      "category": "hospitality",
+      "title": "Front Office Test Set 2",
+      "description": "Grooming, system operation, guest experience knowledge.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp09",
+      "category": "hospitality",
+      "title": "Hospitality Combined Test Set 1",
+      "description": "General hospitality exam: FO, HK, F&B, Barista.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "hosp10",
+      "category": "hospitality",
+      "title": "Hospitality Combined Test Set 2",
+      "description": "Industry competency exam for all hospitality roles.",
+      "url": "https://gyoutrain-lab.github.io/assets/hospitality/hosp10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- JOB INTERVIEW ---------------- */
+
+    {
+      "id": "job01",
+      "category": "job-interview",
+      "title": "HR Interview Simulation Set 1",
+      "description": "General HR interview real scenario questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job02",
+      "category": "job-interview",
+      "title": "HR Interview Simulation Set 2",
+      "description": "More practice for professional interview readiness.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job03",
+      "category": "job-interview",
+      "title": "Customer Service Interview Practice",
+      "description": "Customer focus and service operations interview set.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job04",
+      "category": "job-interview",
+      "title": "Managerial Interview Practice",
+      "description": "Leadership and management interview preparation.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job05",
+      "category": "job-interview",
+      "title": "Behavioral Interview Question Bank",
+      "description": "STAR method, problem solving, workplace scenarios.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job06",
+      "category": "job-interview",
+      "title": "Sales Interview Simulation",
+      "description": "Sales mindset, persuasion, negotiation skills.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job07",
+      "category": "job-interview",
+      "title": "Office Admin Interview Prep",
+      "description": "Admin operations, documentation, communication skills.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job08",
+      "category": "job-interview",
+      "title": "Tech Interview Fundamentals",
+      "description": "Basic IT, logic, technical troubleshooting exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job09",
+      "category": "job-interview",
+      "title": "Competency-Based Interview Test",
+      "description": "Competency exam for all job positions.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "job10",
+      "category": "job-interview",
+      "title": "Job Interview Mega Bundle",
+      "description": "All interview tests combined into one pack.",
+      "url": "https://gyoutrain-lab.github.io/assets/job-interview/job10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- GOVERNMENT ---------------- */
+
+    {
+      "id": "govt01",
+      "category": "government",
+      "title": "Civil Service Basic Competency Test 1",
+      "description": "General civil service exam simulation.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt02",
+      "category": "government",
+      "title": "Civil Service Basic Competency Test 2",
+      "description": "Aptitude, logic, literacy, reasoning exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt03",
+      "category": "government",
+      "title": "Health Department Screening Test",
+      "description": "Test for public health and hospital administration.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt04",
+      "category": "government",
+      "title": "Tourism Department Screening Test",
+      "description": "Tourism operations, services and general knowledge.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt05",
+      "category": "government",
+      "title": "Education Department Screening Test",
+      "description": "Education administration and teaching knowledge.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt06",
+      "category": "government",
+      "title": "Administrative Aptitude Test",
+      "description": "Aptitude test for government admin roles.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt07",
+      "category": "government",
+      "title": "Logical Reasoning Test",
+      "description": "Logic and reasoning exam for civil service.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt08",
+      "category": "government",
+      "title": "Verbal Ability Test",
+      "description": "Reading, interpretation and language skills.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt09",
+      "category": "government",
+      "title": "Numerical Ability Test",
+      "description": "Math, data interpretation and analysis exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "govt10",
+      "category": "government",
+      "title": "Government Job Exam Bundle",
+      "description": "All civil service exam packs combined.",
+      "url": "https://gyoutrain-lab.github.io/assets/government/govt10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- UNIVERSITY ---------------- */
+
+    {
+      "id": "uni01",
+      "category": "university-test",
+      "title": "University Entrance Test Set 1",
+      "description": "General university admission aptitude test.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni02",
+      "category": "university-test",
+      "title": "University Entrance Test Set 2",
+      "description": "Skill-based entry test for all faculties.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni03",
+      "category": "university-test",
+      "title": "Science Faculty Entrance Test",
+      "description": "Biology, chemistry, physics basic admission exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni04",
+      "category": "university-test",
+      "title": "Social Science Entrance Test",
+      "description": "Economics, sociology, history admission exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni05",
+      "category": "university-test",
+      "title": "Engineering Entrance Test",
+      "description": "Math and physics-based technical exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni06",
+      "category": "university-test",
+      "title": "Business Faculty Test",
+      "description": "Business knowledge and aptitude assessment.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni07",
+      "category": "university-test",
+      "title": "Medical Faculty Screening",
+      "description": "Basic medical admission screening test.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni08",
+      "category": "university-test",
+      "title": "English Proficiency Entry Test",
+      "description": "English entrance exam for university admission.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni09",
+      "category": "university-test",
+      "title": "Aptitude Test Set 1",
+      "description": "General aptitude test for academic placement.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "uni10",
+      "category": "university-test",
+      "title": "Aptitude Test Set 2",
+      "description": "Advanced reasoning and logic test for admission.",
+      "url": "https://gyoutrain-lab.github.io/assets/university-test/uni10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- NATIONAL EXAM ---------------- */
+
+    {
+      "id": "nat01",
+      "category": "national-exam",
+      "title": "National Exam Simulation Set 1",
+      "description": "Standardized national exam practice set.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat02",
+      "category": "national-exam",
+      "title": "National Exam Simulation Set 2",
+      "description": "Second tryout for national exam readiness.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat03",
+      "category": "national-exam",
+      "title": "Math National Exam Prep",
+      "description": "Math tryout with answer key.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat04",
+      "category": "national-exam",
+      "title": "Science National Exam Prep",
+      "description": "Science practice exam with explanations.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat05",
+      "category": "national-exam",
+      "title": "English National Exam Prep",
+      "description": "English national exam tryout.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat06",
+      "category": "national-exam",
+      "title": "Bahasa Indonesia Exam Prep",
+      "description": "Reading, grammar, and interpretation test.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat07",
+      "category": "national-exam",
+      "title": "Social Studies Exam Prep",
+      "description": "Geography, history, sociology questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat08",
+      "category": "national-exam",
+      "title": "Tryout Paket A",
+      "description": "National examination tryout package A.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat09",
+      "category": "national-exam",
+      "title": "Tryout Paket B",
+      "description": "National examination tryout package B.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "nat10",
+      "category": "national-exam",
+      "title": "National Exam Complete Bank",
+      "description": "Full national exam content bank.",
+      "url": "https://gyoutrain-lab.github.io/assets/national-exam/nat10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- SCHOOL EXAM ---------------- */
+
+    {
+      "id": "sch01",
+      "category": "school-exam",
+      "title": "Grade 1 Mid-Semester Test Set",
+      "description": "Elementary grade 1 school exam tryout.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch02",
+      "category": "school-exam",
+      "title": "Grade 2 Mid-Semester Test Set",
+      "description": "Elementary grade 2 school exam tryout.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch03",
+      "category": "school-exam",
+      "title": "Grade 3 Mid-Semester Test Set",
+      "description": "Elementary grade 3 school exam tryout.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch04",
+      "category": "school-exam",
+      "title": "Grade 4 Mid-Semester Test Set",
+      "description": "Elementary grade 4 school exam simulation.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch05",
+      "category": "school-exam",
+      "title": "Grade 5 Mid-Semester Test Set",
+      "description": "Elementary grade 5 exam pack.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch06",
+      "category": "school-exam",
+      "title": "Grade 6 Tryout Set",
+      "description": "National-level grade 6 tryout.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch07",
+      "category": "school-exam",
+      "title": "Grade 7 Exam Pack",
+      "description": "Junior high grade 7 test set.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch08",
+      "category": "school-exam",
+      "title": "Grade 8 Exam Pack",
+      "description": "Junior high grade 8 test set.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch09",
+      "category": "school-exam",
+      "title": "Grade 9 Tryout",
+      "description": "National-level grade 9 test pack.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "sch10",
+      "category": "school-exam",
+      "title": "School Exam Mega Bundle",
+      "description": "All school exam levels combined.",
+      "url": "https://gyoutrain-lab.github.io/assets/school-exam/sch10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- TOEFL ---------------- */
+
+    {
+      "id": "toefl01",
+      "category": "toefl-test",
+      "title": "TOEFL Simulation Test Set 1",
+      "description": "TOEFL listening, reading, speaking practice set.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl02",
+      "category": "toefl-test",
+      "title": "TOEFL Simulation Test Set 2",
+      "description": "Second complete TOEFL practice test.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl03",
+      "category": "toefl-test",
+      "title": "TOEFL Reading Test",
+      "description": "Reading practice passages and exam questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl04",
+      "category": "toefl-test",
+      "title": "TOEFL Listening Test",
+      "description": "Audio-based listening practice questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl05",
+      "category": "toefl-test",
+      "title": "TOEFL Speaking Test",
+      "description": "Speaking prompts and recorded samples.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl06",
+      "category": "toefl-test",
+      "title": "TOEFL Writing Test",
+      "description": "Integrated & independent writing tasks.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl07",
+      "category": "toefl-test",
+      "title": "TOEFL Strategy Pack",
+      "description": "Complete TOEFL strategy guide.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl08",
+      "category": "toefl-test",
+      "title": "TOEFL Vocabulary Builder",
+      "description": "Vocabulary enhancement for TOEFL.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl09",
+      "category": "toefl-test",
+      "title": "TOEFL Grammar Test",
+      "description": "Grammar practice and error recognition tests.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "toefl10",
+      "category": "toefl-test",
+      "title": "TOEFL Full Bundle",
+      "description": "All TOEFL tests combined in one pack.",
+      "url": "https://gyoutrain-lab.github.io/assets/toefl-test/toefl10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- IELTS ---------------- */
+
+    {
+      "id": "ielts01",
+      "category": "ielts",
+      "title": "IELTS Academic Simulation 1",
+      "description": "Full IELTS academic simulation with answers.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts02",
+      "category": "ielts",
+      "title": "IELTS Academic Simulation 2",
+      "description": "Practice test for band 6.5 to 8.0 preparation.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts03",
+      "category": "ielts",
+      "title": "IELTS Listening Test",
+      "description": "Audio listening exam with transcript.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts04",
+      "category": "ielts",
+      "title": "IELTS Reading Test",
+      "description": "Reading passages and exam-style questions.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts05",
+      "category": "ielts",
+      "title": "IELTS Speaking Test",
+      "description": "Speaking part 1, 2, 3 question bank.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts06",
+      "category": "ielts",
+      "title": "IELTS Writing Test",
+      "description": "Task 1 and Task 2 complete practice.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts07",
+      "category": "ielts",
+      "title": "IELTS Band 7+ Strategy Pack",
+      "description": "Preparation guide for achieving band 7+.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts08",
+      "category": "ielts",
+      "title": "IELTS Vocabulary Set",
+      "description": "Vocabulary list and practice for IELTS.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts09",
+      "category": "ielts",
+      "title": "IELTS Practice Pack A",
+      "description": "General practice pack for IELTS test takers.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ielts10",
+      "category": "ielts",
+      "title": "IELTS Practice Pack B",
+      "description": "Intermediate to advanced test preparation pack.",
+      "url": "https://gyoutrain-lab.github.io/assets/ielts/ielts10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- OTHER COMPETENCIES ---------------- */
+
+    {
+      "id": "comp01",
+      "category": "other-competencies",
+      "title": "Basic Computer Skills Test",
+      "description": "Keyboarding, file management, software basics.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp02",
+      "category": "other-competencies",
+      "title": "Microsoft Office Test",
+      "description": "Word, Excel, PowerPoint exam.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp03",
+      "category": "other-competencies",
+      "title": "Digital Literacy Test",
+      "description": "Internet skills, online safety, software competence.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp04",
+      "category": "other-competencies",
+      "title": "Customer Service Competency Test",
+      "description": "Customer handling, service knowledge, communication.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp05",
+      "category": "other-competencies",
+      "title": "Sales Competency Test",
+      "description": "Sales processes, persuasion, negotiation knowledge.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp06",
+      "category": "other-competencies",
+      "title": "Warehouse Skills Test",
+      "description": "Inventory, safety, operations knowledge test.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp07",
+      "category": "other-competencies",
+      "title": "Retail Competency Assessment",
+      "description": "Retail operations, cashiering, sales knowledge.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp08",
+      "category": "other-competencies",
+      "title": "Hospitality Soft Skills Test",
+      "description": "Soft skills needed for hospitality industries.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp09",
+      "category": "other-competencies",
+      "title": "HR Competency Test",
+      "description": "Basic HR management, recruitment, and policies.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "comp10",
+      "category": "other-competencies",
+      "title": "Professional Skills Mega Pack",
+      "description": "All competency assessments combined.",
+      "url": "https://gyoutrain-lab.github.io/assets/other-competencies/comp10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+
+    /* ---------------- EBOOKS ---------------- */
+
+    {
+      "id": "ebook01",
+      "category": "ebooks",
+      "title": "Nursing Exam Preparation eBook",
+      "description": "Study guide for nurses preparing for exams.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook01/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook02",
+      "category": "ebooks",
+      "title": "IELTS Strategy eBook",
+      "description": "Band 7+ strategies and skill development.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook02/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook03",
+      "category": "ebooks",
+      "title": "TOEFL Strategy eBook",
+      "description": "Comprehensive TOEFL preparation guide.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook03/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook04",
+      "category": "ebooks",
+      "title": "Hospitality Training Manual",
+      "description": "Hospitality operational training eBook.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook04/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook05",
+      "category": "ebooks",
+      "title": "Government Exam Study Guide",
+      "description": "Handbook for civil service and government exams.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook05/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook06",
+      "category": "ebooks",
+      "title": "University Prep Handbook",
+      "description": "Entrance test strategies for university applicants.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook06/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook07",
+      "category": "ebooks",
+      "title": "National Exam Guide",
+      "description": "Exam tips and learning strategies for students.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook07/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook08",
+      "category": "ebooks",
+      "title": "Job Interview Secrets",
+      "description": "Interview techniques and confidence building.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook08/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook09",
+      "category": "ebooks",
+      "title": "Professional Skills Handbook",
+      "description": "Soft skills and workplace professionalism.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook09/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
+    },
+    {
+      "id": "ebook10",
+      "category": "ebooks",
+      "title": "Mega Study eBook Collection",
+      "description": "All academic preparation eBooks combined.",
+      "url": "https://gyoutrain-lab.github.io/assets/ebooks/ebook10/",
+      "whatsapp": "https://wa.me/6285399652487",
+      "price": "Free demo"
     }
-  </script>
-</body>
-</html>
-
+  ]
+}
