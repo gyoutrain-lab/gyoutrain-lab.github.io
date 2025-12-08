@@ -1,110 +1,90 @@
-// ==========================================================
-// PRODUCT DATA
-// ==========================================================
-export const products = [
-  // Nursing Category
-  {
-    id: "nursing-bundle",
-    title: "Nursing Bundle",
-    category: "nursing",
-    thumbnail: "/assets/nursing/nursing-bundle.svg",
-    description: "Complete nursing preparation bundle.",
-    link: "https://gyoutrain-lab.github.io/nursing/bundle"
-  },
-  {
-    id: "nursing-explainer",
-    title: "Nursing Explainer",
-    category: "nursing",
-    thumbnail: "/assets/nursing/nursing-explainer.svg",
-    description: "Core concepts explained with clarity.",
-    link: "https://gyoutrain-lab.github.io/nursing/explainer"
-  },
-  {
-    id: "nursing-quicktest",
-    title: "Nursing Quick Test",
-    category: "nursing",
-    thumbnail: "/assets/nursing/nursing-quicktest.svg",
-    description: "Fast practice test with instant results.",
-    link: "https://gyoutrain-lab.github.io/nursing/quicktest"
-  },
+// store/store.js — loads products.json and renders interactive UI
+(function(){
+  const productsPath = 'products.json';
 
-  // Prometric Category
-  {
-    id: "prometric-main",
-    title: "Prometric Main Course",
-    category: "prometric",
-    thumbnail: "/assets/nursing/prometric-main.svg",
-    description: "Primary preparation program.",
-    link: "https://gyoutrain-lab.github.io/prometric/main"
-  },
-  {
-    id: "prometric-demo",
-    title: "Prometric Demo Test",
-    category: "prometric",
-    thumbnail: "/assets/nursing/prometric-demo.svg",
-    description: "Free demo test to evaluate your level.",
-    link: "https://gyoutrain-lab.github.io/prometric/demo"
-  },
-  {
-    id: "prometric-full",
-    title: "Prometric Full Test",
-    category: "prometric",
-    thumbnail: "/assets/nursing/prometric-full.svg",
-    description: "Full-length 100-item mock test.",
-    link: "https://gyoutrain-lab.github.io/prometric/full"
-  }
-];
+  const el = sel => document.querySelector(sel);
+  const productGrid = el('#productGrid');
+  const categorySelect = el('#categorySelect');
+  const searchInput = el('#searchInput');
+  const themeToggle = el('#themeToggle');
+  const browseBtn = el('#browseBtn');
 
-export const categories = [
-  { id: "all", name: "All" },
-  { id: "nursing", name: "Nursing" },
-  { id: "prometric", name: "Prometric" }
-];
-
-// ==========================================================
-// RENDER CATEGORY DROPDOWN
-// ==========================================================
-const categorySelect = document.getElementById("categorySelect");
-categories.forEach(cat => {
-  const option = document.createElement("option");
-  option.value = cat.id;
-  option.textContent = cat.name;
-  categorySelect.appendChild(option);
-});
-
-// ==========================================================
-// RENDER PRODUCTS
-// ==========================================================
-const productGrid = document.getElementById("productGrid");
-
-function renderProducts(filter = "all") {
-  productGrid.innerHTML = "";
-
-  const filtered =
-    filter === "all" ? products : products.filter(p => p.category === filter);
-
-  filtered.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "product-card";
-    card.onclick = () => (window.location.href = item.link);
-
-    card.innerHTML = `
-      <img src="${item.thumbnail}" class="product-thumb" alt="${item.title}">
-      <div class="product-info">
-        <div class="product-title">${item.title}</div>
-        <div class="product-desc">${item.description}</div>
-      </div>
-    `;
-
-    productGrid.appendChild(card);
+  // fetch JSON and init
+  fetch(productsPath).then(r => r.json()).then(data => {
+    const products = data.products || [];
+    initCategories(products);
+    renderProducts(products);
+    attachEvents(products);
+  }).catch(err => {
+    console.error('Failed to load products.json', err);
+    productGrid.innerHTML = '<p style="color:#6b7280">Failed to load products. Check products.json path.</p>';
   });
-}
 
-renderProducts();
+  function initCategories(products){
+    const cats = ['all', ...Array.from(new Set(products.map(p => p.category)))];
+    cats.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c === 'all' ? 'All categories' : capitalize(c);
+      categorySelect.appendChild(opt);
+    });
+  }
 
-// ==========================================================
-// FILTER EVENT
-// ==========================================================
-categorySelect.addEventListener("change", (e) => {
-  renderProducts(e.target.value);
-});
+  function renderProducts(products, filter='all', query=''){
+    productGrid.innerHTML = '';
+    const q = (query||'').trim().toLowerCase();
+
+    const list = products.filter(p => {
+      const okCat = filter === 'all' || p.category === filter;
+      const okQuery = !q || (p.title + ' ' + p.short + ' ' + (p.long||'')).toLowerCase().includes(q);
+      return okCat && okQuery;
+    });
+
+    if(list.length === 0){
+      productGrid.innerHTML = '<p style="color:#6b7280">No products found.</p>';
+      return;
+    }
+
+    list.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <div class="thumb"><img src="${p.thumbnail}" alt="${escapeHtml(p.title)}"></div>
+        <div class="card-body">
+          <div class="title">${escapeHtml(p.title)}</div>
+          <div class="short">${escapeHtml(p.short)}</div>
+          <div class="meta">
+            <div class="price">${escapeHtml(p.price||'')}</div>
+            <div class="actions">
+              <a class="demo" href="${p.demo || p.full || '#'}" target="_blank" rel="noopener">Try Demo</a>
+              <a class="full" href="${p.full || p.demo || '#'}" target="_blank" rel="noopener">Start Full Test</a>
+              <a class="wa" href="${p.whatsapp || '#'}" target="_blank" rel="noopener">Unlock / Buy</a>
+            </div>
+          </div>
+          <div class="details" aria-hidden="true">${escapeHtml(p.long || '')}</div>
+        </div>
+      `;
+      productGrid.appendChild(card);
+    });
+  }
+
+  function attachEvents(products){
+    categorySelect.addEventListener('change', ()=> renderProducts(products, categorySelect.value, searchInput.value));
+    searchInput.addEventListener('input', ()=> renderProducts(products, categorySelect.value, searchInput.value));
+    themeToggle.addEventListener('click', toggleTheme);
+    browseBtn && browseBtn.addEventListener('click', ()=> {
+      window.scrollTo({top: document.querySelector('#productGrid').offsetTop - 20, behavior: 'smooth'});
+    });
+  }
+
+  function toggleTheme(){
+    document.body.classList.toggle('dark');
+    const pressed = document.body.classList.contains('dark');
+    themeToggle.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    themeToggle.textContent = pressed ? 'Light' : 'Dark';
+  }
+
+  function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+})();
