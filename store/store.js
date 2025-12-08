@@ -1,91 +1,30 @@
+// store/store.js
+// list layout sample — two nursing products (demo + full)
 const store = {
   products: [
-    // ------------------------
-    // Nursing
-    // ------------------------
     {
-      id: "nursing01",
+      id: "nursing-demo",
       category: "nursing",
-      title: "Nursing Prometric Test - Batch 1",
-      description: "Simulation Test 75 Questions + Answer Key.",
-      url: "https://gyoutrain-lab.github.io/assets/nursing/batch1/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Free Demo"
+      title: "Nursing Prometric Demo — 20 Questions (Free)",
+      short: "Free 20-question demo simulation with instant scoring and brief rationales.",
+      long: "This demo provides a short Prometric-style experience to evaluate your readiness. Mobile-friendly. Great to try before buying the full test packages.",
+      img: "/assets/nursing/prometric-demo.svg",
+      demo: "https://script.google.com/macros/s/AKfycbwQX3XRFHwz5u5t1A8ROqaRO8U0yw019UC19lwQjQYqTmKO9iGhjVqBeBGiGYDKvFkJ/exec",
+      full: "",
+      whatsapp: "https://wa.me/6285399652487?text=I%20want%20to%20unlock%20the%20Nursing%20Prometric%20Full%20Package",
+      price: "Free demo"
     },
     {
-      id: "nursing02",
+      id: "nursing-full",
       category: "nursing",
-      title: "Nursing Prometric Test - Batch 2",
-      description: "New set of 75 questions.",
-      url: "https://gyoutrain-lab.github.io/assets/nursing/batch2/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Premium"
-    },
-
-    // ------------------------
-    // IELTS
-    // ------------------------
-    {
-      id: "ielts01",
-      category: "ielts",
-      title: "IELTS Practice Test 1",
-      description: "Listening + Reading + Writing Task Samples.",
-      url: "https://gyoutrain-lab.github.io/assets/ielts/batch1/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Free Demo"
-    },
-    {
-      id: "ielts02",
-      category: "ielts",
-      title: "IELTS Practice Test 2",
-      description: "New model test set.",
-      url: "https://gyoutrain-lab.github.io/assets/ielts/batch2/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Premium"
-    },
-
-    // ------------------------
-    // TOEFL
-    // ------------------------
-    {
-      id: "toefl01",
-      category: "toefl-test",
-      title: "TOEFL Model Test 1",
-      description: "Full reading & listening set.",
-      url: "https://gyoutrain-lab.github.io/assets/toefl-test/batch1/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Free Demo"
-    },
-    {
-      id: "toefl02",
-      category: "toefl-test",
-      title: "TOEFL Model Test 2",
-      description: "Full new question bank.",
-      url: "https://gyoutrain-lab.github.io/assets/toefl-test/batch2/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Premium"
-    },
-
-    // ------------------------
-    // Hospitality
-    // ------------------------
-    {
-      id: "hosp01",
-      category: "hospitality",
-      title: "Housekeeping Assessment",
-      description: "Multiple-choice competency test.",
-      url: "https://gyoutrain-lab.github.io/assets/hospitality/batch1/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Free Demo"
-    },
-    {
-      id: "hosp02",
-      category: "hospitality",
-      title: "Food & Beverage Service Test",
-      description: "Competency exam for restaurant staff.",
-      url: "https://gyoutrain-lab.github.io/assets/hospitality/batch2/",
-      whatsapp: "https://wa.me/6285399652487",
-      price: "Premium"
+      title: "Nursing Prometric Full Test — Full Simulation",
+      short: "Full Prometric-style simulation hosted on our site (timed, scoring, answers).",
+      long: "Full 75–100 question simulation designed to mimic real Prometric exams. Includes randomized questions, time limits, and full explanations. Best for serious exam preparation.",
+      img: "/assets/nursing/prometric-full.svg",
+      demo: "https://script.google.com/macros/s/AKfycbwQX3XRFHwz5u5t1A8ROqaRO8U0yw019UC19lwQjQYqTmKO9iGhjVqBeBGiGYDKvFkJ/exec",
+      full: "https://gyoutrain-lab.github.io/production-prometrictest6/",
+      whatsapp: "https://wa.me/6285399652487?text=I%20want%20to%20unlock%20the%20Nursing%20Prometric%20Full%20Test",
+      price: "Paid"
     }
   ]
 };
