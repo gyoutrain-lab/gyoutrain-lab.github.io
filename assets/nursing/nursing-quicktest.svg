@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-<rect width="100%" height="100%" rx="18" fill="#f0eaff"/>
-<g transform="translate(40,40)">
-<rect width="260" height="140" rx="12" fill="#fff" stroke="#d6c8f3" />
-<text x="12" y="36" font-family="Arial" font-size="20" fill="#5a34a3">PROMETRIC</text>
-<text x="12" y="66" font-family="Arial" font-size="14" fill="#374151">Nursing Quick Test</text>
-<circle cx="340" cy="80" r="50" fill="#fff" stroke="#d6c8f3"/>
-<path d="M320 62c8-10 30-16 46-6 10 6 18 22 10 38-8 16-32 20-48 10-12-8-18-28-8-42z" fill="#5a34a3"/>
-<text x="12" y="170" font-family="Arial" font-size="13" fill="#374151">10-minute practice • Fast prep</text>
-</g></svg>
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="28" fill="#E7FFF1"/>
+  <rect x="60" y="60" width="120" height="120" rx="16" fill="#00C471"/>
+  <path d="M85 120 l25 25 45 -45" stroke="white" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <text x="120" y="208" text-anchor="middle" font-size="20" font-family="Arial" fill="#009E59">Quick Test</text>
+</svg>
