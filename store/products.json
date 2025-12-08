@@ -1,4 +1,13 @@
 {
-  "products": []
+  "products": [{
+  "id": "nursing-demo",
+  "title": "Nursing Prometric Test — Demo",
+  "thumbnail": "/assets/nursing/prometric-demo.svg",
+  "description": "25-question free demo with instant results.",
+  "url": "https://script.google.com/macros/s/AKfycbwQX3XRFHwz5u5t1A8ROqaRO8U0yw019UC19lwQjQYqTmKO9iGhjVqBeBGiGYDKvFkJ/exec",
+  "category": "nursing",
+  "price": "Free"
+}
+]
 }
 
